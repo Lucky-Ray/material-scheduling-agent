@@ -39,7 +39,7 @@ python src/agent.py --input examples/save_failure.input.json --mode mock --db :m
 python src/agent.py --input examples/normal.input.json --mode mock --db :memory: --max-steps 1
 ```
 
-变体 catalog 的重现以 generate.py 为准；CLI 当前固定读取 data/catalog.json，不能直接用 --input 切换规则或占用配置。重复场景需相同数据库运行两次，或使用生成器。
+变体 catalog 可以通过 --catalog 重现，例如 `python src/agent.py --input examples/changed_occupied.input.json --catalog examples/changed_occupied.catalog.json --mode mock --db :memory:`。重复场景需相同数据库运行两次，或使用生成器。
 
 ## 真实模型材料
 

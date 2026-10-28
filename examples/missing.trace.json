@@ -3,6 +3,19 @@
   "reason": "missing material",
   "draft": null,
   "published": false,
+  "material_result": {
+    "material_id": "UNKNOWN",
+    "review_status": "not_checked",
+    "risk_reasons": [],
+    "missing_fields": [
+      "material_id or material"
+    ],
+    "suggested_slot": null,
+    "pending_items": [
+      "material_id or material"
+    ],
+    "save_status": "not_attempted"
+  },
   "trace": [
     {
       "step": 1,

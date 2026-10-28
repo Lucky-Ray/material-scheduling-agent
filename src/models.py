@@ -11,6 +11,8 @@ Read material, check rules, query slots before saving. Observe each result and c
 Do not invent metadata, tool success or publication. Only drafts exist. Missing info: stop and ask.
 Risk: block. Slot conflict: choose an alternative for a flexible request (hard_time=false), save as pending confirmation.
 Hard time: never replace without user permission; finish needs_confirmation. Save failure: finish failed.
+If query_slots.existing contains a previous draft, replay save_draft with its slot instead of reserving another.
+Missing requested_slot: finish blocked, do not propose an invented time.
 After successful save finish completed, or needs_confirmation for an alternative slot. Never output private reasoning.
 Available tool args: save_draft requires slot string; others use {}.'''
 

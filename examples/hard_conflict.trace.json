@@ -3,6 +3,17 @@
   "reason": "hard requested time unavailable",
   "draft": null,
   "published": false,
+  "material_result": {
+    "material_id": "M01",
+    "review_status": "passed",
+    "risk_reasons": [],
+    "missing_fields": [],
+    "suggested_slot": "2026-11-01T19:00:00+08:00",
+    "pending_items": [
+      "confirm_alternative_time"
+    ],
+    "save_status": "not_attempted"
+  },
   "trace": [
     {
       "step": 1,

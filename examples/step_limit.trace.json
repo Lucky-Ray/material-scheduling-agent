@@ -1,7 +1,17 @@
 {
   "status": "incomplete",
   "reason": "step_limit",
+  "draft": null,
   "published": false,
+  "material_result": {
+    "material_id": "M01",
+    "review_status": "not_checked",
+    "risk_reasons": [],
+    "missing_fields": [],
+    "suggested_slot": null,
+    "pending_items": [],
+    "save_status": "not_attempted"
+  },
   "trace": [
     {
       "step": 1,

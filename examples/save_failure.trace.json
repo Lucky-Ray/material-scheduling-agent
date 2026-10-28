@@ -6,6 +6,15 @@
     "error": "injected_storage_failure"
   },
   "published": false,
+  "material_result": {
+    "material_id": "M01",
+    "review_status": "passed",
+    "risk_reasons": [],
+    "missing_fields": [],
+    "suggested_slot": null,
+    "pending_items": [],
+    "save_status": "failed"
+  },
   "trace": [
     {
       "step": 1,

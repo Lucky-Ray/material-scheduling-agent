@@ -2,13 +2,13 @@
   "verification_date": "2026-10-28",
   "timezone": "Asia/Shanghai",
   "python": "3.12.7",
-  "project_path": "E:\\Desktop\\秋招\\小影校招-Agent",
   "mode": "offline_mock",
   "live_model_verified": false,
   "unit_tests": {
     "exit_code": 0,
     "log": "examples/test-results.txt"
   },
+  "unit_test_count": 19,
   "scenarios": {
     "exit_code": 0,
     "log": "examples/generate-results.txt"
@@ -19,6 +19,5 @@
   },
   "scenario_count": 12,
   "scenario_assertions_passed": true,
-  "unit_test_count": 9,
   "broken_relative_document_links": []
 }

@@ -7,8 +7,18 @@ test_normal_and_duplicate (test_agent.AgentTests.test_normal_and_duplicate) ... 
 test_prerequisites (test_agent.AgentTests.test_prerequisites) ... ok
 test_save_failure (test_agent.AgentTests.test_save_failure) ... ok
 test_tools_enforce_boundaries (test_agent.AgentTests.test_tools_enforce_boundaries) ... ok
+test_cli_catalog_override (test_hardening.HardeningTests.test_cli_catalog_override) ... ok
+test_cli_missing_file_returns_json_and_nonzero (test_hardening.HardeningTests.test_cli_missing_file_returns_json_and_nonzero) ... ok
+test_invalid_input_and_model_protocol (test_hardening.HardeningTests.test_invalid_input_and_model_protocol) ... ok
+test_legacy_database_migration (test_hardening.HardeningTests.test_legacy_database_migration) ... ok
+test_replay_cannot_bypass_new_hard_constraint (test_hardening.HardeningTests.test_replay_cannot_bypass_new_hard_constraint) ... ok
+test_request_id_cannot_be_reused_for_other_material (test_hardening.HardeningTests.test_request_id_cannot_be_reused_for_other_material) ... ok
+test_request_idempotency_even_when_model_changes_slot (test_hardening.HardeningTests.test_request_idempotency_even_when_model_changes_slot) ... ok
+test_rules_rechecked_on_replay (test_hardening.HardeningTests.test_rules_rechecked_on_replay) ... ok
+test_saved_side_effect_survives_execution_limit (test_hardening.HardeningTests.test_saved_side_effect_survives_execution_limit) ... ok
+test_structured_material_summary (test_hardening.HardeningTests.test_structured_material_summary) ... ok
 
 ----------------------------------------------------------------------
-Ran 9 tests in 0.010s
+Ran 19 tests in 0.854s
 
 OK

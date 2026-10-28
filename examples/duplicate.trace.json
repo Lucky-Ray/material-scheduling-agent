@@ -3,7 +3,7 @@
   "reason": "observed storage result",
   "draft": {
     "ok": true,
-    "draft_id": "b115a8a48232df11939c",
+    "draft_id": "40f5bc4f7f5800a89e81",
     "duplicate": true,
     "material_id": "M01",
     "slot": "2026-11-01T19:00:00+08:00",
@@ -11,6 +11,15 @@
     "confirmation": "not_required"
   },
   "published": false,
+  "material_result": {
+    "material_id": "M01",
+    "review_status": "passed",
+    "risk_reasons": [],
+    "missing_fields": [],
+    "suggested_slot": "2026-11-01T19:00:00+08:00",
+    "pending_items": [],
+    "save_status": "saved"
+  },
   "trace": [
     {
       "step": 1,
@@ -66,7 +75,7 @@
       "reason": "recover existing draft idempotently",
       "result": {
         "ok": true,
-        "draft_id": "b115a8a48232df11939c",
+        "draft_id": "40f5bc4f7f5800a89e81",
         "duplicate": true,
         "material_id": "M01",
         "slot": "2026-11-01T19:00:00+08:00",

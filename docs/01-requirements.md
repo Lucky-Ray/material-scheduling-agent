@@ -29,10 +29,11 @@
 | material_id | 字符串，必需 | 素材库主键 | 查不到时返回缺失，不生成虚构素材 |
 | requested_slot | 字符串，必需 | 带时区的完整发布时间 | 缺失不能保存；不在目录中按不可用处理 |
 | hard_time | JSON 布尔，缺省 true | 是否必须保持指定时间 | true 禁止替代；false 只允许保存待确认替代草稿 |
+| request_id | 可选非空字符串 | 请求级幂等标识 | 同 ID 不允许换素材或原时间；不填时用素材与原时间派生 |
 
 示例：`{"material_id":"M01","requested_slot":"2026-11-01T18:00:00+08:00","hard_time":false}`。
 
-当前未实现完整 JSON Schema 或时间解析；工具依赖字符串精确匹配。调用方应按上述类型提供数据，不能将字符串 `"false"` 作为布尔值。后续输入校验工作列为已知限制。
+当前校验请求必须是对象，标识和时间必须是字符串或缺失，hard_time 必须是布尔值；不能使用字符串 `"false"`。时间未做自然语言或日期解析，依赖目录字符串精确匹配。
 
 ## 5. 合成资料
 
@@ -51,14 +52,15 @@
 | --- | --- |
 | status | completed / needs_confirmation / blocked / failed / incomplete |
 | reason | 简短决策依据或异常类型，无模型内部思维 |
-| draft | 最近一次保存返回，可能为 null；失败或步数上限路径可能没有此字段 |
+| draft | 已成功保存的结果优先保留，否则为最近一次保存失败或 null；异常与上限路径也包含该字段 |
+| material_result | 素材审核状态、风险、缺失项、建议时间、待确认项、保存状态 |
 | published | 恒 false，表示本项目没有执行发布 |
 | mode | mock 或 live，由 CLI 或示例生成器添加 |
 | trace | 工具调用顺序、参数、工具结果和简短依据 |
 
 草稿成功返回含 draft_id、material_id、slot、requested_slot、confirmation、duplicate。confirmation 为 not_required 表示草稿保持原请求时段；pending 表示替代时间需要确认。二者均只涉及草稿。
 
-风险原因来自 check_rules 的 risks；缺失项来自 missing；建议时段来自 query_slots 或成功草稿。暂未将这些字段再聚合为独立的审核报告对象，消费者需读取 Trace。此项明确列为交付展示层的限制。
+风险原因来自 check_rules 的 risks；缺失项来自 missing；建议时段来自 query_slots 或成功草稿。现在同时聚合到 material_result，消费者可以直接展示审核结果，再用 Trace 追溯证据。
 
 ## 7. 成功标准与验收映射
 
@@ -69,7 +71,7 @@
 | A03 | 规则风险 | 返回命中风险，不保存 | risk.trace.json；test_missing_and_risk |
 | A04 | 柔性时段冲突 | 观察冲突后选择可用替代时间，保存 pending | conflict.trace.json；test_flexible_conflict |
 | A05 | 硬性时段冲突 | 不擅自改变，needs_confirmation，无草稿 | hard_conflict.trace.json；test_hard_conflict |
-| A06 | 重复提交 | 相同草稿载荷重放，返回相同 draft_id，数量不变 | duplicate.trace.json；test_normal_and_duplicate |
+| A06 | 重复提交 | 相同请求重放，即使换候选 slot 也返回原 draft_id，数量不变 | duplicate.trace.json；test_normal_and_duplicate |
 | A07 | 保存失败 | failed，ok=false，不伪称成功 | save_failure.trace.json；test_save_failure |
 | A08 | 无候选时间 | blocked，说明缺口 | no_slots.trace.json |
 | A09 | 结果扰动 | 改占用或规则后路径改变 | changed_occupied / changed_rule Trace |
@@ -85,4 +87,4 @@
 
 ## 9. 完成判定
 
-工程可运行与真实模型验收分开记录：离线测试通过只代表当前已测约束成立；真实模型路径、资料扰动、本人核实贡献以及最终 GitHub URL / SHA 仍是正式提交前的工作。
+工程可运行与真实模型验收分开记录：离线测试通过只代表当前已测约束成立；真实模型路径和本人核实贡献仍有待完成；公开 GitHub URL 已提供，最终 SHA 以远端 main 为准。

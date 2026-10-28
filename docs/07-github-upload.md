@@ -1,6 +1,6 @@
 # GitHub 上传操作
 
-首次编写本教程时，项目已初始化 Git，但尚无 commit、远端地址，也未上传。当前仓库地址为 https://github.com/Lucky-Ray/material-scheduling-agent ，以下命令保留作为复现步骤，不要在已有远端时重复执行 remote add。浏览器登录与 Git 命令行认证是两个环节，首次 push 仍可能要求认证。
+首次编写本教程时，项目已初始化 Git，但尚无 commit、远端地址，也未上传。当前仓库已按用户要求改为公开，地址为 https://github.com/Lucky-Ray/material-scheduling-agent ，以下命令保留作为复现步骤，不要在已有远端时重复执行 remote add。浏览器登录与 Git 命令行认证是两个环节，首次 push 仍可能要求认证。
 
 ## 1. 创建空仓库
 

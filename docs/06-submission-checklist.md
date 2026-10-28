@@ -16,12 +16,12 @@
 | 最难问题、学习收获、下一步 | 05-retrospective.md | 工程复盘已补；个人经历待本人填写 |
 | 至少三组输入、输出和运行记录 | 12 组离线场景 + 重复首次记录 | 已提供，不代替 live 证明 |
 | 正常、信息不足、工具失败 | normal、missing、missing_metadata、save_failure | 离线覆盖 |
-| 风险、冲突、重复、保存失败 | 对应场景、单元测试和数据库断言 | 离线覆盖，完整请求级防重有限制 |
+| 风险、冲突、重复、保存失败 | 对应场景、单元测试和数据库断言 | 离线覆盖，请求级防重、规则变更复核已补充 |
 | 至少两条模型动态路径 | live-normal 与 live-conflict 操作说明 | 未实际运行 |
 | 步数或调用上限 | --max-steps，默认 10 | 已实现并验证超限 |
 | 依赖及变量示例 | requirements.txt、.env.example | 已提供 |
 | 工程独立 | 位于 interview 同级目录，自带全部资料 | 已分离 |
-| GitHub URL 与最终 commit SHA | https://github.com/Lucky-Ray/material-scheduling-agent | 私有仓库已创建；最终 SHA 用 git rev-parse HEAD 核对 |
+| GitHub URL 与最终 commit SHA | https://github.com/Lucky-Ray/material-scheduling-agent | 已按用户要求公开；最终 SHA 用 git rev-parse HEAD 核对 |
 
 ## 2. 本人提交前执行顺序
 
@@ -39,8 +39,8 @@
 
 - 真实模型至少两条路径的实际效果验证。
 - 对真实模型进行工具结果扰动后的动作复核。
-- 请求级防重、规则变化复核等已知缺陷的修复或清楚披露。
+- 真实模型验证之外的业务扩展（审批流程、历史草稿撤回）已明确披露，不计为已实现。
 - 候选人亲自完成的修改、实际验证、学习收获与耗时。
-- 私有仓库的评审访问权限配置，以及交卷时最终 commit SHA 的核对。
+- 仓库已公开，不再需要单独授予评审读取权限；交卷时仍要核对最终 SHA。
 
 这些缺口已在文档中明示，不能将本项目称为“所有要求全部完成”。

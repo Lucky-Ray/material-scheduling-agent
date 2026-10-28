@@ -3,7 +3,7 @@
   "reason": "observed storage result",
   "draft": {
     "ok": true,
-    "draft_id": "5a09c77eb4922d443a82",
+    "draft_id": "aed74a2ac4b97af4a581",
     "duplicate": false,
     "material_id": "M01",
     "slot": "2026-11-01T19:00:00+08:00",
@@ -11,6 +11,17 @@
     "confirmation": "pending"
   },
   "published": false,
+  "material_result": {
+    "material_id": "M01",
+    "review_status": "passed",
+    "risk_reasons": [],
+    "missing_fields": [],
+    "suggested_slot": "2026-11-01T19:00:00+08:00",
+    "pending_items": [
+      "confirm_alternative_time"
+    ],
+    "save_status": "saved"
+  },
   "trace": [
     {
       "step": 1,
@@ -60,7 +71,7 @@
       "reason": "use requested or alternative available slot",
       "result": {
         "ok": true,
-        "draft_id": "5a09c77eb4922d443a82",
+        "draft_id": "aed74a2ac4b97af4a581",
         "duplicate": false,
         "material_id": "M01",
         "slot": "2026-11-01T19:00:00+08:00",

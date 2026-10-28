@@ -30,6 +30,7 @@ Set-Location 'E:\Desktop\秋招\小影校招-Agent'
 python --version
 python -m unittest discover -s tests -v
 python examples/generate.py
+python scripts/verify.py
 ```
 
 `examples/generate.py` 在每个场景中使用独立内存数据库，不污染演示或业务数据库；重复提交场景在同一连接执行两次。生成结果会覆盖同名离线示例文件。
@@ -70,9 +71,9 @@ python src/agent.py --input examples/conflict.input.json --mode live --db live-c
 }
 ```
 
-时间必须与合成时段表中的字符串完全一致。`hard_time` 缺省为 true；false 允许提出替代草稿，仍标记为待确认。CLI 输入为单项请求，多素材可逐次调用。
+可选 `request_id` 标识同一业务请求；缺省按素材 ID 与原请求时间防重复，即使模型换候选时段也恢复原草稿。时间必须与合成时段表中的字符串完全一致。`hard_time` 缺省为 true；false 允许提出替代草稿，仍标记为待确认。CLI 输入为单项请求，多素材可逐次调用。
 
-输出包含 `status`、`reason`、`draft`（有结束动作时）、`published: false`、`mode` 和 `trace`。Trace 的每一项包含步骤、工具、参数、简短依据及完整工具返回。输出本身同时包含实际结果和运行记录，不另造摘要替代事实。
+输出包含 `status`、`reason`、`draft`、`material_result`、`published: false`、`mode` 和 `trace`。Trace 的每一项包含步骤、工具、参数、简短依据及完整工具返回。输出本身同时包含实际结果和运行记录，不另造摘要替代事实。
 
 | status | 含义 |
 | --- | --- |
@@ -87,6 +88,7 @@ python src/agent.py --input examples/conflict.input.json --mode live --db live-c
 | 参数 | 默认值 | 用途 |
 | --- | --- | --- |
 | --input | 必填 | UTF-8 / UTF-8 BOM JSON 输入 |
+| --catalog | data/catalog.json | 可指定场景 catalog 快照 |
 | --mode | mock | mock 离线；live 远端模型 |
 | --db | drafts.sqlite3 | SQLite 草稿存储路径，支持 :memory: |
 | --output | 无 | 将完整 JSON 结果写入指定文件；父目录须已存在 |
@@ -102,10 +104,11 @@ src/
   models.py     真实模型适配器、提示词、离线模拟器
   tools.py      素材、规则、时段、SQLite 保存
   runner.py     有界执行循环、Trace 与结果核验
- tests/         可执行测试
- data/          合成素材、风险规则、时段及已有占用
- examples/      输入、实际离线输出、测试日志、生成器、索引
- docs/          需求、方案、评估、AI 披露、复盘、提交检查表
+tests/         可执行测试
+data/          合成素材、风险规则、时段及已有占用
+examples/      输入、实际离线输出、测试日志、生成器、索引
+docs/          需求、方案、评估、AI 披露、复盘、提交检查表
+scripts/       一键刷新测试日志、场景和验证摘要
 ```
 
 ## 8. 故障排查与已知边界
@@ -113,8 +116,14 @@ src/
 - 正常请求突然冲突：先检查是否重复使用已有草稿的数据库。
 - 缺少模型变量：在线模型初始化失败；按 `.env.example` 设置全部三个变量。
 - 模型返回非 JSON、HTTP 错误或超时：执行结果为 failed，reason 只记录异常类型，避免泄漏服务响应中的敏感内容。
-- 输入文件解析、数据库连接、在线配置初始化错误发生在循环外，目前会输出 Python 异常；尚未统一为 JSON 错误。
-- 所有状态都应结合工具证据理解。执行到上限即使此前有写入，也返回 incomplete，需核对 Trace 后续处理。
-- 同一素材同一原时间换一个替代时间时，现有幂等键不能保证请求级唯一，详见评估报告。
+- 文件读取、数据库、模型配置与输出写入失败统一返回结构化 JSON；failed / incomplete 的 CLI 退出码为 1，其余业务结束状态为 0。
+- 所有状态都应结合工具证据理解。即使执行异常或到上限，`draft` 和 `material_result.save_status` 仍保留已成功写入的证据。
+- 请求级幂等会保持原草稿；修改业务意图需使用新的 request_id。规则更新后，历史草稿重试会重新审核；当前不会自动撤销旧记录。
 
-GitHub 仓库：https://github.com/Lucky-Ray/material-scheduling-agent （私有）。当前上传操作不等于考试交卷；本人仍需完成真实模型验证、理解并修改代码、填写真实贡献。最终 commit SHA 使用 `git rev-parse HEAD` 获取。
+GitHub 仓库：https://github.com/Lucky-Ray/material-scheduling-agent （公开）。当前上传操作不等于考试交卷；本人仍需完成真实模型验证、理解并修改代码、填写真实贡献。最终 commit SHA 使用 `git rev-parse HEAD` 获取。
+
+## 9. 自动验证和提交入口
+
+GitHub Actions 在 push / pull_request 后验证 Python 3.10 和 3.12 的单元测试及 12 组场景断言，详情见 [Actions](https://github.com/Lucky-Ray/material-scheduling-agent/actions)。运行时不调用远端模型，也不需要密钥。
+
+评审用说明见 [提交说明](docs/08-submission.md)。当前真实模型验证未执行，不把离线通过解释为全题验收通过。

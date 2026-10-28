@@ -3,6 +3,19 @@
   "reason": "rules or metadata require attention",
   "draft": null,
   "published": false,
+  "material_result": {
+    "material_id": "M03",
+    "review_status": "blocked",
+    "risk_reasons": [],
+    "missing_fields": [
+      "rights"
+    ],
+    "suggested_slot": null,
+    "pending_items": [
+      "rights"
+    ],
+    "save_status": "not_attempted"
+  },
   "trace": [
     {
       "step": 1,
