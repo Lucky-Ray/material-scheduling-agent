@@ -1,0 +1,22 @@
+{
+  "status": "incomplete",
+  "reason": "step_limit",
+  "published": false,
+  "trace": [
+    {
+      "step": 1,
+      "tool": "read_material",
+      "args": {},
+      "reason": "collect evidence",
+      "result": {
+        "material": {
+          "title": "字幕功能介绍",
+          "rights": "owned",
+          "tags": []
+        },
+        "missing": []
+      }
+    }
+  ],
+  "mode": "mock"
+}

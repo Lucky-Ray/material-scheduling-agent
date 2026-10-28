@@ -1,0 +1,21 @@
+{
+  "status": "blocked",
+  "reason": "missing material",
+  "draft": null,
+  "published": false,
+  "trace": [
+    {
+      "step": 1,
+      "tool": "read_material",
+      "args": {},
+      "reason": "collect evidence",
+      "result": {
+        "material": null,
+        "missing": [
+          "material_id or material"
+        ]
+      }
+    }
+  ],
+  "mode": "mock"
+}

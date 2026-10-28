@@ -1,0 +1,12 @@
+normal completed
+conflict needs_confirmation
+missing blocked
+missing_metadata blocked
+risk blocked
+save_failure failed
+hard_conflict needs_confirmation
+duplicate completed
+no_slots blocked
+changed_occupied completed
+changed_rule blocked
+step_limit incomplete

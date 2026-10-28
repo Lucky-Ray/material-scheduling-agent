@@ -1,0 +1,144 @@
+[
+  {
+    "case": "normal",
+    "expected": "completed",
+    "actual": "completed",
+    "passed": true,
+    "draft_count": 1,
+    "tool_path": [
+      "read_material",
+      "check_rules",
+      "query_slots",
+      "save_draft"
+    ]
+  },
+  {
+    "case": "conflict",
+    "expected": "needs_confirmation",
+    "actual": "needs_confirmation",
+    "passed": true,
+    "draft_count": 1,
+    "tool_path": [
+      "read_material",
+      "check_rules",
+      "query_slots",
+      "save_draft"
+    ]
+  },
+  {
+    "case": "missing",
+    "expected": "blocked",
+    "actual": "blocked",
+    "passed": true,
+    "draft_count": 0,
+    "tool_path": [
+      "read_material"
+    ]
+  },
+  {
+    "case": "missing_metadata",
+    "expected": "blocked",
+    "actual": "blocked",
+    "passed": true,
+    "draft_count": 0,
+    "tool_path": [
+      "read_material",
+      "check_rules"
+    ]
+  },
+  {
+    "case": "risk",
+    "expected": "blocked",
+    "actual": "blocked",
+    "passed": true,
+    "draft_count": 0,
+    "tool_path": [
+      "read_material",
+      "check_rules"
+    ]
+  },
+  {
+    "case": "save_failure",
+    "expected": "failed",
+    "actual": "failed",
+    "passed": true,
+    "draft_count": 0,
+    "tool_path": [
+      "read_material",
+      "check_rules",
+      "query_slots",
+      "save_draft"
+    ]
+  },
+  {
+    "case": "hard_conflict",
+    "expected": "needs_confirmation",
+    "actual": "needs_confirmation",
+    "passed": true,
+    "draft_count": 0,
+    "tool_path": [
+      "read_material",
+      "check_rules",
+      "query_slots"
+    ]
+  },
+  {
+    "case": "duplicate",
+    "expected": "completed",
+    "actual": "completed",
+    "passed": true,
+    "draft_count": 1,
+    "tool_path": [
+      "read_material",
+      "check_rules",
+      "query_slots",
+      "save_draft"
+    ]
+  },
+  {
+    "case": "no_slots",
+    "expected": "blocked",
+    "actual": "blocked",
+    "passed": true,
+    "draft_count": 0,
+    "tool_path": [
+      "read_material",
+      "check_rules",
+      "query_slots"
+    ]
+  },
+  {
+    "case": "changed_occupied",
+    "expected": "completed",
+    "actual": "completed",
+    "passed": true,
+    "draft_count": 1,
+    "tool_path": [
+      "read_material",
+      "check_rules",
+      "query_slots",
+      "save_draft"
+    ]
+  },
+  {
+    "case": "changed_rule",
+    "expected": "blocked",
+    "actual": "blocked",
+    "passed": true,
+    "draft_count": 0,
+    "tool_path": [
+      "read_material",
+      "check_rules"
+    ]
+  },
+  {
+    "case": "step_limit",
+    "expected": "incomplete",
+    "actual": "incomplete",
+    "passed": true,
+    "draft_count": 0,
+    "tool_path": [
+      "read_material"
+    ]
+  }
+]

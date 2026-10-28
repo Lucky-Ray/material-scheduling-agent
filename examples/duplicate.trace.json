@@ -1,0 +1,79 @@
+{
+  "status": "completed",
+  "reason": "observed storage result",
+  "draft": {
+    "ok": true,
+    "draft_id": "b115a8a48232df11939c",
+    "duplicate": true,
+    "material_id": "M01",
+    "slot": "2026-11-01T19:00:00+08:00",
+    "requested_slot": "2026-11-01T19:00:00+08:00",
+    "confirmation": "not_required"
+  },
+  "published": false,
+  "trace": [
+    {
+      "step": 1,
+      "tool": "read_material",
+      "args": {},
+      "reason": "collect evidence",
+      "result": {
+        "material": {
+          "title": "字幕功能介绍",
+          "rights": "owned",
+          "tags": []
+        },
+        "missing": []
+      }
+    },
+    {
+      "step": 2,
+      "tool": "check_rules",
+      "args": {},
+      "reason": "collect evidence",
+      "result": {
+        "ok": true,
+        "missing": [],
+        "risks": []
+      }
+    },
+    {
+      "step": 3,
+      "tool": "query_slots",
+      "args": {},
+      "reason": "collect evidence",
+      "result": {
+        "available": [
+          "2026-11-01T20:00:00+08:00"
+        ],
+        "existing": [
+          {
+            "material_id": "M01",
+            "slot": "2026-11-01T19:00:00+08:00",
+            "requested_slot": "2026-11-01T19:00:00+08:00",
+            "confirmation": "not_required"
+          }
+        ],
+        "requested_available": false
+      }
+    },
+    {
+      "step": 4,
+      "tool": "save_draft",
+      "args": {
+        "slot": "2026-11-01T19:00:00+08:00"
+      },
+      "reason": "recover existing draft idempotently",
+      "result": {
+        "ok": true,
+        "draft_id": "b115a8a48232df11939c",
+        "duplicate": true,
+        "material_id": "M01",
+        "slot": "2026-11-01T19:00:00+08:00",
+        "requested_slot": "2026-11-01T19:00:00+08:00",
+        "confirmation": "not_required"
+      }
+    }
+  ],
+  "mode": "mock"
+}

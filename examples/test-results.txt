@@ -1,0 +1,14 @@
+test_flexible_conflict (test_agent.AgentTests.test_flexible_conflict) ... ok
+test_hard_conflict (test_agent.AgentTests.test_hard_conflict) ... ok
+test_limit_and_false_success (test_agent.AgentTests.test_limit_and_false_success) ... ok
+test_missing_and_risk (test_agent.AgentTests.test_missing_and_risk) ... ok
+test_missing_time (test_agent.AgentTests.test_missing_time) ... ok
+test_normal_and_duplicate (test_agent.AgentTests.test_normal_and_duplicate) ... ok
+test_prerequisites (test_agent.AgentTests.test_prerequisites) ... ok
+test_save_failure (test_agent.AgentTests.test_save_failure) ... ok
+test_tools_enforce_boundaries (test_agent.AgentTests.test_tools_enforce_boundaries) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.010s
+
+OK

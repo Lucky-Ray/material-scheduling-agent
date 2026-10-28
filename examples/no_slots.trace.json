@@ -1,0 +1,45 @@
+{
+  "status": "blocked",
+  "reason": "no available slots",
+  "draft": null,
+  "published": false,
+  "trace": [
+    {
+      "step": 1,
+      "tool": "read_material",
+      "args": {},
+      "reason": "collect evidence",
+      "result": {
+        "material": {
+          "title": "字幕功能介绍",
+          "rights": "owned",
+          "tags": []
+        },
+        "missing": []
+      }
+    },
+    {
+      "step": 2,
+      "tool": "check_rules",
+      "args": {},
+      "reason": "collect evidence",
+      "result": {
+        "ok": true,
+        "missing": [],
+        "risks": []
+      }
+    },
+    {
+      "step": 3,
+      "tool": "query_slots",
+      "args": {},
+      "reason": "collect evidence",
+      "result": {
+        "available": [],
+        "existing": [],
+        "requested_available": false
+      }
+    }
+  ],
+  "mode": "mock"
+}

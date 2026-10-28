@@ -1,0 +1,35 @@
+{
+  "status": "blocked",
+  "reason": "rules or metadata require attention",
+  "draft": null,
+  "published": false,
+  "trace": [
+    {
+      "step": 1,
+      "tool": "read_material",
+      "args": {},
+      "reason": "collect evidence",
+      "result": {
+        "material": {
+          "title": "缺版权素材",
+          "tags": []
+        },
+        "missing": []
+      }
+    },
+    {
+      "step": 2,
+      "tool": "check_rules",
+      "args": {},
+      "reason": "collect evidence",
+      "result": {
+        "ok": false,
+        "missing": [
+          "rights"
+        ],
+        "risks": []
+      }
+    }
+  ],
+  "mode": "mock"
+}

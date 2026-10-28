@@ -1,0 +1,29 @@
+{
+  "materials": {
+    "M01": {
+      "title": "字幕功能介绍",
+      "rights": "owned",
+      "tags": []
+    },
+    "M02": {
+      "title": "风险素材",
+      "rights": "owned",
+      "tags": [
+        "unverified_claim"
+      ]
+    },
+    "M03": {
+      "title": "缺版权素材",
+      "tags": []
+    }
+  },
+  "rules": [
+    "unverified_claim"
+  ],
+  "slots": [
+    "2026-11-01T18:00:00+08:00",
+    "2026-11-01T19:00:00+08:00",
+    "2026-11-01T20:00:00+08:00"
+  ],
+  "occupied": []
+}
